@@ -1,0 +1,126 @@
+def clinic():
+    score=0
+    print "Welcome to the Dark Souls Questionaire! Answer the questions!"
+    print "Who is King Vendrick's son? A. Knight Solaire B. Amygadala C. ???"
+    answer = raw_input("Answer:")
+    if answer == "A" or answer == "a":
+	score = score + 1
+	print "Your score is now"
+	print score
+        print "Good! Very good!"
+    elif answer == "B" or answer == "C" or answer == "b" or answer == "c":
+        print "*tsk*,*tsk*,*tsk*"
+    else:
+        print "You didn't type anything! Try again."
+
+        clinic()
+
+clinic()
+def clinic2():
+    	print "How many guns are there in Dark Souls?"
+	print "A. 2 B. ??? C. None"
+    	answer = raw_input("Answer:")
+    	if answer == "C" or answer == "c":
+		score = score + 1
+		print "Your score is now" 
+		print score
+        	print "Well Done!"
+    	elif answer == "B" or answer == "A" or answer == "b" or answer == "a":
+        	print "What a failure!!!"
+    	else:
+    	    print "You didn't type anything! Try again."
+	
+	    clinic2()
+
+clinic2()
+def clinic3():
+    	print "How many Blood Vials do you get in Dark Souls?"
+	print "A. 2 B. ??? C. None"
+    	answer = raw_input("Answer:")
+    	if answer == "C" or answer == "c":
+		score = score + 1
+		print "Your score is now"
+		print score
+        	print "Well Done!"
+    	elif answer == "B" or answer == "A" or answer == "b" or answer == "a":
+        	print "What a dumba*s!"
+    	else:
+    	    print "You didn't type anything! Try again."
+	
+	    clinic3()
+
+clinic3()
+def clinic4():
+    	print "How many Estus Fasks are there in Bloodborne?"
+	print "A. None B. ??? C. 21"
+    	answer = raw_input("Answer:")
+    	if answer == "A" or answer == "a":
+		score = score + 1 
+		print "Your score is now"
+		print score
+        	print "Well Done!"
+    	elif answer == "B" or answer == "C" or answer == "b" or answer == "c":
+        	print "Are you stupid or something?"
+    	else:
+    	    print "You didn't type anything! Try again."
+	
+	    clinic4()
+
+clinic4()
+def clinic5():
+    	print "Is Santier's Spear a:"
+	print "A. Spear B. Twin-blade C. Both"
+    	answer = raw_input("Answer:")
+    	if answer == "c" or answer == "C":
+		score = score + 1 
+		print "Your score is now"
+		print score
+        	print "Keep Going!"
+    	elif answer == "B" or answer == "A" or answer == "b" or answer == "a":
+        	print "This is just getting ridiculous..."
+    	else:
+    	    print "You didn't type anything! Try again."
+	
+	    clinic5()
+
+clinic5()
+def clinic6():
+    	print "Is the Washing Pole a:"
+	print "A. Dagger B. Greatsword C. Katana"
+    	answer = raw_input("Answer:")
+    	if answer == "c" or answer == "C":
+		score = score + 1
+		print "Your score is now"
+		print score
+        	print "Stupendous!"
+    	elif answer == "B" or answer == "A" or answer == "b" or answer == "a":
+        	print "Pfff..."
+    	else:
+    	    print "You didn't type anything! Try again."
+	
+	    clinic6()
+
+clinic6()
+def end():
+	if score == 3 or score < 3:
+		print "That was rubbish!!! Try again!"
+	elif score > 3:
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "Your overall score was:"
+		print score
+	else:
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "You win!"
+		print "Your overall score was:"
+		print score
