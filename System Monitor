@@ -1,0 +1,66 @@
+# A simple internet System Monitor. Make sure you have the libraries installed to run it!
+import cluttergtk
+import clutter
+import gtk
+import time
+lasttime=1
+lastbin=1
+lastbout=0
+black =clutter.Color(0,0,0,255)
+red =clutter.Color(255, 0, 0, 255)
+green =clutter.Color(0,255,0,255)
+blue =clutter.Color(0,0,255,255)
+def updatespeed(t, a, b):
+	global lasttime, lastbin, lastbout
+	f=open('/proc/net/dev','r')
+	for line in f.readlines():
+		line=line.strip()
+		if (line[:4] == 'eth0'):
+		  line=line[5:].split()
+		  bin=int(line[0])
+		  bout=int(line[8])
+		  timedelta=time.time()-lasttime
+		  lasttime=time.time()
+		  speedin=round((bin-lastbin)/(1024*timedelta),2)
+		  speedout=round((bout-lastbout)/(1024*timedelta),2)
+		  lastbin, lastbout = bin, bout
+		  a.set_text(str(speedin))+'KB/s'
+		  xx,yy=a.get_size()
+		  b.set_position(int((300-xx)/2),int((100-yy)/2)+100)
+def parseKeyPress(self, event):
+	#Parses the keyboard as this is called by the stage object
+	if event.keyval == clutter.keysyms.q:
+		#If "q" is pressed, quit
+		clutter.main_quit()
+	elif event.keyval == clutter.keysyms.q:
+		#if "r" is pressed, make object red
+		self.set_color(red)
+	elif event.keyval == clutter.keysyms.g:
+		#if "g" is pressed, make object green
+		self.set_color(blue)
+	elif event.keyval.syms == clutter.keysyms.b:
+		#if "b" is clicked, make object blue
+		self.set_color(blue)
+	elif event.keyval -- clutter.keysyms.m:
+		#if "m" is clicked, make object black
+		self.set_color(black)
+	print 'Event Processed', event.keyval
+stage = clutter.Stage()
+stage.set_size(300,200)
+stage.set_color(blue)
+stage.connect('key-press-event',parseKeyPress)
+intext=clutter.Text()
+intext.set_font_name("Sans 30")
+intext.set_color(green)
+stage.add(intext)
+outtext=clutter.Text()
+outtext.set_font_name("Sans 30")
+outtext.set_color(red)
+stage.add(outtext)
+stage.show_all()
+t=clutter.TImeline()
+t.set_duration(5000)
+t.set_loop(True)
+t.connect('completed',updatespeed, intext, outtext)
+t.start()
+clutter.main()
